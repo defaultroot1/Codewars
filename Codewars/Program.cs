@@ -1,14 +1,11 @@
-﻿using System;
-
-
-namespace Codewars
+﻿namespace Codewars
 {
     internal class Program
     {
         static void Main(string[] args)
         {
 
-            Console.WriteLine(HeroBulletsDragon.Kata.Hero(11, 5));
+            Console.WriteLine(HeroBulletsDragon.Kata.Hero(6, 2));
         }
     }
 }

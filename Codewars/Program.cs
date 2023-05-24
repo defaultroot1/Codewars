@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
 
-            Console.WriteLine(HeroBulletsDragon.Kata.Hero(6, 2));
+            Console.WriteLine(PhoneNumber.Kata.CreatePhoneNumber(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }));
         }
     }
 }

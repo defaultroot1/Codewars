@@ -8,8 +8,8 @@ namespace Codewars
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Kata.CountPositivesSumNegatives(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15 }));
-            
+            //Console.WriteLine(Kata.Check(new object[] { 66, 101 }, 66));
+            CheckArray.Kata.Check(new object[] { 66, 101 }, 66);
         }
     }
 }

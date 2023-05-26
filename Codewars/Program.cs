@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ROT13.Kata.Rot13("EBG13 rknzcyr."));
+            Console.WriteLine(ROT13.Kata.Rot13("Va gur ryringbef, gur rkgebireg ybbxf ng gur BGURE thl'f fubrf"));
 
         }
     }

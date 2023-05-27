@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ROT13.Kata.Rot13("Va gur ryringbef, gur rkgebireg ybbxf ng gur BGURE thl'f fubrf"));
+            Console.WriteLine(SumMixedArray.Kata.SumMix(new object[] { 9, 3, "7", "3" }));
 
         }
     }

@@ -6,8 +6,14 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SumMixedArray.Kata.SumMix(new object[] { 9, 3, "7", "3" }));
+            int[] check = TwoSum.Kata.TwoSum(new[] { 1, 2, 3 }, 4).OrderBy(a => a).ToArray();
 
+            foreach (int i in check)
+            {
+                Console.WriteLine(i);
+            }
         }
+
+        
     }
 }

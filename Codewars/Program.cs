@@ -10,7 +10,7 @@ namespace Codewars
 
             foreach (int i in check)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i + " - test");
             }
         }
 

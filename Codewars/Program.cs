@@ -6,11 +6,27 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            int[] check = TwoSum.Kata.TwoSum(new[] { 1, 2, 3 }, 4).OrderBy(a => a).ToArray();
+            // Tests here
+            Console.WriteLine(Kata.DivCon(new object[] { 9, 3, "7", "3" }));
+		}
 
-            foreach (int i in check)
+        public class Kata
+        {
+            public static int DivCon(Object[] objArray)
             {
-                Console.WriteLine(i + " - test");
+                int result = 0;
+                foreach (Object obj in objArray)
+                {
+                    if (obj is int i)
+                    {
+                        result += i;
+                    }
+                    else
+                    {
+                        result -= Int32.Parse(obj.ToString());
+                    }
+                }
+                return result;
             }
         }
 

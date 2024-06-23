@@ -7,28 +7,19 @@ namespace Codewars
         static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.DivCon(new object[] { 9, 3, "7", "3" }));
+            Console.WriteLine(Kata.IsEven(20));
+			Console.WriteLine(Kata.IsEven(23));
+			Console.WriteLine(Kata.IsEven(0.5));
+			Console.WriteLine(Kata.IsEven(-4));
 		}
 
         public class Kata
         {
-            public static int DivCon(Object[] objArray)
-            {
-                int result = 0;
-                foreach (Object obj in objArray)
-                {
-                    if (obj is int i)
-                    {
-                        result += i;
-                    }
-                    else
-                    {
-                        result -= Int32.Parse(obj.ToString());
-                    }
-                }
-                return result;
-            }
-        }
+			public static bool IsEven(double n)
+			{
+                return (n % 2 == 0);
+			}
+		}
 
         
     }

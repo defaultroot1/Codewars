@@ -8,21 +8,39 @@ namespace Codewars
         {
             // Tests here
 
-            List<int[]> peopleList1 = new List<int[]>() { new[] { 10, 0 }, new[] { 3, 5 }, new[] { 5, 8 } };
-			List<int[]> peopleList2 = new List<int[]>() { new[] { 3, 0 }, new[] { 9, 1 }, new[] { 4, 10 }, new[] { 12, 2 }, new[] { 6, 1 }, new[] { 7, 10 } };
-			List<int[]> peopleList3 = new List<int[]>() { new[] { 3, 0 }, new[] { 9, 1 }, new[] { 4, 8 }, new[] { 12, 2 }, new[] { 6, 1 }, new[] { 7, 8 } };
-
-            Console.WriteLine(Kata.Number(peopleList1));
-            Console.WriteLine(Kata.Number(peopleList2));
-            Console.WriteLine(Kata.Number(peopleList3));
-
-
-
-
+            Console.WriteLine(Kata.FindEvenIndex(new int[] { 1, 2, 3, 4, 3, 2, 1 })); 
+            Console.WriteLine(Kata.FindEvenIndex(new int[] { 1, 100, 50, -51, 1, 1 })); 
+            Console.WriteLine(Kata.FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 })); 
+            Console.WriteLine(Kata.FindEvenIndex(new int[] { 20, 10, 30, 10, 10, 15, 35 })); 
+            //Console.WriteLine(Kata.FindEvenIndex(new int[] { 20, 10, -80, 10, 10, 15, 35 })); 
         }
 
 		public class Kata
         {
+			public static int FindEvenIndex(int[] arr)
+			{
+				int target = 0;
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    target = i == 0 ? 0 : target + arr[i - 1];
+                    Console.WriteLine($"index: {i} - target: {target}");
+
+                    int rightSideSum = 0;
+
+                    for (int j = i + 1; j < arr.Length; j++)
+                    {
+
+                        rightSideSum += arr[j];
+                    }
+                    Console.WriteLine($"RightSide: {rightSideSum}");
+
+                    if (rightSideSum == target) return i;
+                }
+
+
+                return -1;
+			}
 			public static int Number(List<int[]> peopleListInOut)
 			{
                 int numOnBus = 0;

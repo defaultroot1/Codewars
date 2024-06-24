@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization; //ToTitleCase
 
 namespace Codewars
 {
@@ -8,15 +9,16 @@ namespace Codewars
         {
             // Tests here
 
-            Console.WriteLine(Kata.FindEvenIndex(new int[] { 1, 2, 3, 4, 3, 2, 1 })); 
-            Console.WriteLine(Kata.FindEvenIndex(new int[] { 1, 100, 50, -51, 1, 1 })); 
-            Console.WriteLine(Kata.FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 })); 
-            Console.WriteLine(Kata.FindEvenIndex(new int[] { 20, 10, 30, 10, 10, 15, 35 })); 
-            //Console.WriteLine(Kata.FindEvenIndex(new int[] { 20, 10, -80, 10, 10, 15, 35 })); 
+            Console.WriteLine(Kata.ToJadenCase("How can mirrors be real if our eyes aren't real"));
         }
 
 		public class Kata
         {
+			public static string ToJadenCase(string phrase)
+			{
+                TextInfo myTI = new CultureInfo("en-US").TextInfo;
+                return myTI.ToTitleCase(phrase);
+			}
 			public static int FindEvenIndex(int[] arr)
 			{
 				int target = 0;
@@ -24,21 +26,17 @@ namespace Codewars
                 for (int i = 0; i < arr.Length; i++)
                 {
                     target = i == 0 ? 0 : target + arr[i - 1];
-                    Console.WriteLine($"index: {i} - target: {target}");
+                    //Console.WriteLine($"index: {i} - target: {target}");
 
                     int rightSideSum = 0;
 
                     for (int j = i + 1; j < arr.Length; j++)
                     {
-
                         rightSideSum += arr[j];
                     }
-                    Console.WriteLine($"RightSide: {rightSideSum}");
-
+                    //Console.WriteLine($"RightSide: {rightSideSum}");
                     if (rightSideSum == target) return i;
                 }
-
-
                 return -1;
 			}
 			public static int Number(List<int[]> peopleListInOut)

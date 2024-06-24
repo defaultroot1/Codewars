@@ -9,16 +9,19 @@ namespace Codewars
         {
             // Tests here
 
-            Console.WriteLine(Kata.IsSquare(-1));
-            Console.WriteLine(Kata.IsSquare(0));
-            Console.WriteLine(Kata.IsSquare(3));
-            Console.WriteLine(Kata.IsSquare(4));
-            Console.WriteLine(Kata.IsSquare(25));
-            Console.WriteLine(Kata.IsSquare(26));
+            Console.WriteLine(Kata.AddBinary(1, 2));
+            Console.WriteLine(Kata.AddBinary(1, 1));
+            Console.WriteLine(Kata.AddBinary(5, 9));
         }
 
 		public class Kata
         {
+
+			public static string AddBinary(int a, int b)
+			{
+                return Convert.ToString(a + b, 2);
+			}
+
 			public static bool IsSquare(int n)
 			{
 

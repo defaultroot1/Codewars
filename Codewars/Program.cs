@@ -9,11 +9,28 @@ namespace Codewars
         {
             // Tests here
 
-            Console.WriteLine(Kata.ToJadenCase("How can mirrors be real if our eyes aren't real"));
+            Console.WriteLine(Kata.IsSquare(-1));
+            Console.WriteLine(Kata.IsSquare(0));
+            Console.WriteLine(Kata.IsSquare(3));
+            Console.WriteLine(Kata.IsSquare(4));
+            Console.WriteLine(Kata.IsSquare(25));
+            Console.WriteLine(Kata.IsSquare(26));
         }
 
 		public class Kata
         {
+			public static bool IsSquare(int n)
+			{
+
+                if (n == 0) return true;
+
+				for(int i = 0; i <= n; i++)
+                {
+                    if (i*i == n) return true;
+                }
+
+                return false;
+			}
 			public static string ToJadenCase(string phrase)
 			{
                 TextInfo myTI = new CultureInfo("en-US").TextInfo;

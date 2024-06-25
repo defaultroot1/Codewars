@@ -9,13 +9,19 @@ namespace Codewars
         {
             // Tests here
 
-            Console.WriteLine(Kata.AddBinary(1, 2));
-            Console.WriteLine(Kata.AddBinary(1, 1));
-            Console.WriteLine(Kata.AddBinary(5, 9));
+            Console.WriteLine(Kata.humanYearsCatYearsDogYears(1)[0]);
+            Console.WriteLine(Kata.humanYearsCatYearsDogYears(2));
+            Console.WriteLine(Kata.humanYearsCatYearsDogYears(10));
         }
 
 		public class Kata
         {
+
+			public static int[] humanYearsCatYearsDogYears(int humanYears)
+			{
+				// Your code here!
+				return new int[] { 0, 0, 0 };
+			}
 
 			public static string AddBinary(int a, int b)
 			{

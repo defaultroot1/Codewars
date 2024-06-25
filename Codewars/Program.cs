@@ -9,19 +9,45 @@ namespace Codewars
         {
             // Tests here
 
-            Console.WriteLine(Kata.humanYearsCatYearsDogYears(1)[0]);
-            Console.WriteLine(Kata.humanYearsCatYearsDogYears(2));
-            Console.WriteLine(Kata.humanYearsCatYearsDogYears(10));
-        }
+            Console.WriteLine(Kata.AlphabetPosition("The sunset sets at twelve o' clock.")); //20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11
+			Console.WriteLine(Kata.AlphabetPosition("The narwhal bacons at midnight.")); // 20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20
+
+		}
 
 		public class Kata
         {
+			public static string AlphabetPosition(string text)
+			{
+                int asciiOffset = 96;
+                string returnString = "";
+                foreach (char c in text.ToLower())
+                {
+                    if(Char.IsLetter(c))
+                    {
+						returnString += $"{Convert.ToInt32(c) - asciiOffset} ";
+					}
+                    
+                    //returnString += Convert.ToInt32(c) - asciiOffset;
+                }
+                return returnString.Trim();
+			}
 
 			public static int[] humanYearsCatYearsDogYears(int humanYears)
 			{
-				// Your code here!
-				return new int[] { 0, 0, 0 };
-			}
+				if (humanYears == 1)
+                {
+					return new int[] { humanYears, 15, 15 };
+				}
+                if (humanYears == 2)
+                {
+					return new int[] { humanYears, 24, 24 };
+				}
+                else
+                {
+					return new int[] { humanYears, 24 + (4 * (humanYears - 2)), 24 + (5 * (humanYears - 2)) };
+				}
+
+            }
 
 			public static string AddBinary(int a, int b)
 			{

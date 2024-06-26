@@ -8,14 +8,27 @@ namespace Codewars
         static void Main(string[] args)
         {
             // Tests here
-
-            Console.WriteLine(Kata.AlphabetPosition("The sunset sets at twelve o' clock.")); //20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11
-			Console.WriteLine(Kata.AlphabetPosition("The narwhal bacons at midnight.")); // 20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20
-
-		}
+            List<string> stringStuff = Kata.Number(new List<string> { "a", "b", "c" });
+            foreach (string s in stringStuff)
+            {
+                Console.WriteLine(s);
+            }
+        }
 
 		public class Kata
         {
+			public static List<string> Number(List<string> lines)
+			{
+                List<string> returnList = new();
+
+                for (int line =  0; line < lines.Count; line++)
+                {
+                    returnList.Add($"{line+1}: {lines[line]}");
+                }
+
+
+                return returnList;
+			}
 			public static string AlphabetPosition(string text)
 			{
                 int asciiOffset = 96;

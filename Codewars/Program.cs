@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization; //ToTitleCase
 
+// https://www.codewars.com/kata/5552101f47fc5178b1000050/csharp
+
 namespace Codewars
 {
     internal class Program
@@ -8,15 +10,19 @@ namespace Codewars
         static void Main(string[] args)
         {
             // Tests here
-            List<string> stringStuff = Kata.Number(new List<string> { "a", "b", "c" });
-            foreach (string s in stringStuff)
-            {
-                Console.WriteLine(s);
-            }
+            Console.WriteLine(Kata.HowMuchILoveYou(2));
+            Console.WriteLine(Kata.HowMuchILoveYou(7));
+            Console.WriteLine(Kata.HowMuchILoveYou(8));
         }
 
 		public class Kata
         {
+			public static string HowMuchILoveYou(int nb_petals)
+			{
+                string[] phrases = { "I love you", "a little", "a lot", "passionately", "madly", "not at all" };
+
+                return phrases[(nb_petals - 1) % 6];
+			}
 			public static List<string> Number(List<string> lines)
 			{
                 List<string> returnList = new();

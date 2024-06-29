@@ -1,7 +1,9 @@
 ﻿using System;
-using System.Globalization; //ToTitleCase
+using System.Globalization;
+using System.Runtime.ExceptionServices; //ToTitleCase
 
-// https://www.codewars.com/kata/5552101f47fc5178b1000050/csharp
+// https://www.codewars.com/kata/57f609022f4d534f05000024/train/csharp
+// https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharphttps://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharp
 
 namespace Codewars
 {
@@ -10,13 +12,35 @@ namespace Codewars
         static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.HowMuchILoveYou(2));
-            Console.WriteLine(Kata.HowMuchILoveYou(7));
-            Console.WriteLine(Kata.HowMuchILoveYou(8));
-        }
+            Console.WriteLine(Kata.MaxSequence(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 })); // 6 [4, -1, 2, 1]
+			Console.WriteLine(Kata.MaxSequence(new int[] { 2, 6, 3, 7, 1 })); // 19 (all, since all positive)
+			Console.WriteLine(Kata.MaxSequence(new int[] { -2, -6, -3, -7 })); // 0 (since all negative)
+
+		}
 
 		public class Kata
         {
+			public static int MaxSequence(int[] arr)
+			{
+                int maxSum = 0;
+
+                for(int i =0; i < arr.Length; i++)
+                {
+                    int currentSum = 0;
+
+                    for (int j = i; j < arr.Length; j++)
+                    {
+                        currentSum += arr[j];
+                        if (currentSum > maxSum)
+                        {
+                            maxSum = currentSum;
+                        }
+                    }
+                }
+                return maxSum;
+			}
+
+
 			public static string HowMuchILoveYou(int nb_petals)
 			{
                 string[] phrases = { "I love you", "a little", "a lot", "passionately", "madly", "not at all" };

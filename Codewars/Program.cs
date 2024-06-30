@@ -12,14 +12,22 @@ namespace Codewars
         static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.MaxSequence(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 })); // 6 [4, -1, 2, 1]
-			Console.WriteLine(Kata.MaxSequence(new int[] { 2, 6, 3, 7, 1 })); // 19 (all, since all positive)
-			Console.WriteLine(Kata.MaxSequence(new int[] { -2, -6, -3, -7 })); // 0 (since all negative)
+            Console.WriteLine(Kata.Decode(".... . -.--   .--- ..- -.. .")); // "HEY JUDE"
 
 		}
 
+
 		public class Kata
         {
+			public static string Decode(string morseCode)
+			{
+                string[] newSring = (morseCode.Split("   "));
+                foreach (string line in newSring)
+                {
+                    Console.WriteLine(line);
+                }
+                return "test";
+            }
 			public static int MaxSequence(int[] arr)
 			{
                 int maxSum = 0;

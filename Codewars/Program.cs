@@ -4,6 +4,7 @@ using System.Runtime.ExceptionServices; //ToTitleCase
 
 // https://www.codewars.com/kata/57f609022f4d534f05000024/train/csharp
 // https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharphttps://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharp
+// https://www.codewars.com/kata/decode-the-morse-code
 
 namespace Codewars
 {
@@ -24,10 +25,16 @@ namespace Codewars
                 string[] newSring = (morseCode.Split("   "));
                 foreach (string line in newSring)
                 {
-                    Console.WriteLine(line);
+                    Console.WriteLine(MorseCode(line));
                 }
                 return "test";
             }
+
+            public static string MorseCode(string code)
+            {
+                return "ConvertedString";
+            }
+
 			public static int MaxSequence(int[] arr)
 			{
                 int maxSum = 0;

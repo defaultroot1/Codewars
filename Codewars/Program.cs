@@ -3,23 +3,40 @@ using System.Diagnostics.Tracing;
 using System.Globalization;
 using System.Runtime.ExceptionServices; //ToTitleCase
 
-// https://www.codewars.com/kata/57f609022f4d534f05000024/train/csharp
-// https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharphttps://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharp
-
 namespace Codewars
 {
     internal class Program
     {
-        static void Main(string[] args)
+
+
+		static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.SquareDigits(9119)); // 811181
+            Console.WriteLine(Kata.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 1 })); // new int[] {2, 2}
 
+            foreach (int val in Kata.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 1 }))
+            {
+                Console.WriteLine(val);
+            }
 		}
 
-
-		public class Kata
+        public class Kata
         {
+
+        public static int[] ArrayDiff(int[] a, int[] b)
+		    {
+                List<int> tempList = new List<int>();
+
+                foreach (int i in a)
+                {
+                    if (!b.Contains(i))
+                    {
+                        tempList.Add(i);
+                    }
+                }
+
+                return tempList.ToArray();
+		    }
 
 			public static int SquareDigits(int n)
 			{
@@ -27,9 +44,7 @@ namespace Codewars
 
                 foreach (char charDigit in n.ToString())
                 {
-
                     int intDigit = charDigit - '0';
-                    Console.WriteLine(intDigit);
                     outputString += (intDigit * intDigit).ToString();
 
                 }

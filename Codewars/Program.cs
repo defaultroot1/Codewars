@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Diagnostics.Tracing;
 using System.Globalization;
 using System.Runtime.ExceptionServices; //ToTitleCase
 
 // https://www.codewars.com/kata/57f609022f4d534f05000024/train/csharp
 // https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharphttps://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/csharp
-// https://www.codewars.com/kata/decode-the-morse-code
 
 namespace Codewars
 {
@@ -13,21 +13,43 @@ namespace Codewars
         static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.Decode(".... . -.--   .--- ..- -.. .")); // "HEY JUDE"
+            Console.WriteLine(Kata.SquareDigits(9119)); // 811181
 
 		}
 
 
 		public class Kata
         {
+
+			public static int SquareDigits(int n)
+			{
+                string outputString = "";
+
+                foreach (char charDigit in n.ToString())
+                {
+
+                    int intDigit = charDigit - '0';
+                    Console.WriteLine(intDigit);
+                    outputString += (intDigit * intDigit).ToString();
+
+                }
+                return Int32.Parse(outputString);
+			}
+
 			public static string Decode(string morseCode)
 			{
-                string[] newSring = (morseCode.Split("   "));
-                foreach (string line in newSring)
+                string returnMessage = "";
+                string[] lineString = (morseCode.Split("   "));
+                foreach (string line in lineString)
                 {
-                    Console.WriteLine(MorseCode(line));
+                    string[] wordString = line.Split(" ");
+                    
+                    foreach(string word in wordString)
+                    {
+                        returnMessage += MorseCode(word);
+                    }
                 }
-                return "test";
+                return returnMessage;
             }
 
             public static string MorseCode(string code)

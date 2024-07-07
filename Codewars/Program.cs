@@ -12,18 +12,38 @@ namespace Codewars
 		static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 1 })); // new int[] {2, 2}
-
-            foreach (int val in Kata.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 1 }))
-            {
-                Console.WriteLine(val);
-            }
+            Console.WriteLine(Kata.HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4")); // "42 -9"
+            Console.WriteLine(Kata.HighAndLow("1 2 3")); // "3 1"
+            Console.WriteLine(Kata.HighAndLow("7")); // "7 7"
 		}
 
         public class Kata
         {
 
-        public static int[] ArrayDiff(int[] a, int[] b)
+			public static string HighAndLow(string numbers)
+			{
+                // Set high and low as first value
+                int high = Int32.Parse(numbers.Split(' ')[0]);
+                int low = Int32.Parse(numbers.Split(' ')[0]);
+ 
+
+                foreach (string s in numbers.Split(' '))
+                {
+                    if (Int32.Parse(s) > high)
+                    {
+                        high = Int32.Parse(s);
+                    }
+
+					if (Int32.Parse(s) < low)
+					{
+						low = Int32.Parse(s);
+					}
+				}
+
+                return ($"{high} {low}");
+			}
+
+			public static int[] ArrayDiff(int[] a, int[] b)
 		    {
                 List<int> tempList = new List<int>();
 

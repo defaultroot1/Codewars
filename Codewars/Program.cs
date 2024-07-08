@@ -12,13 +12,52 @@ namespace Codewars
 		static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4")); // "42 -9"
-            Console.WriteLine(Kata.HighAndLow("1 2 3")); // "3 1"
-            Console.WriteLine(Kata.HighAndLow("7")); // "7 7"
-		}
+            Console.WriteLine(Kata.Accum("ZpglnRxqenU")); // Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu
+            Console.WriteLine(Kata.Accum("HbideVbxncC")); // H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc
+        }
 
         public class Kata
         {
+
+			public static String Accum(string s)
+			{
+                string returnString = "";
+
+                for(int i = 0; i < s.Length; i++)
+                {
+					for (int j = 0; j <= i; j++)
+                    {
+                        if (j == 0) { returnString += s.ToUpper()[i]; }
+                        else { returnString += s.ToLower()[i]; }
+                        
+					}   
+                    
+                    if (i < s.Length - 1)
+                    {
+                        returnString += "-";
+                    }
+                }
+                return returnString;
+			}
+
+			public static string GetMiddle(string s)
+			{
+                Console.WriteLine(s.Length);
+                Console.WriteLine(s.Length / 2);
+
+                if (s.Length == 1)
+                {
+                    return s;
+                }
+                else if (s.Length % 2 != 0)
+                {
+                    return $"{s[(s.Length / 2)]}";
+                }
+                else
+                {
+                    return $"{s[(s.Length / 2) - 1]}{s[(s.Length / 2)]}";
+				}
+			}
 
 			public static string HighAndLow(string numbers)
 			{

@@ -8,16 +8,35 @@ namespace Codewars
     internal class Program
     {
 
-
 		static void Main(string[] args)
         {
-            // Tests here
-            Console.WriteLine(Kata.Accum("ZpglnRxqenU")); // Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu
-            Console.WriteLine(Kata.Accum("HbideVbxncC")); // H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc
-        }
+			// Tests here
+			var list = new List<object>() { 1, 2, "a", "b" }; // new List<int>(){1,2};
+			var list2 = new List<object>() { 1, "a", "b", 0, 15 }; // new List<int>(){1,0,15};
+		}
 
         public class Kata
         {
+
+
+			public class ListFilterer
+			{
+				public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems)
+				{
+
+                    List<int> returnList = new();
+
+                    foreach (var item in listOfItems)
+                    {
+                        if (item is int)
+                        {
+                            returnList.Add((int)item);
+                        }
+                    }
+                    return returnList;
+				}
+			}
+
 
 			public static String Accum(string s)
 			{

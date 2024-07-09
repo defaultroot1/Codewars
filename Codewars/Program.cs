@@ -2,6 +2,7 @@
 using System.Diagnostics.Tracing;
 using System.Globalization;
 using System.Runtime.ExceptionServices; //ToTitleCase
+using System.Linq;
 
 namespace Codewars
 {
@@ -11,32 +12,37 @@ namespace Codewars
 		static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.IsIsogram("Dermatoglyphics"));
-            Console.WriteLine(Kata.IsIsogram("aba"));
-            Console.WriteLine(Kata.IsIsogram("moOse"));
-            Console.WriteLine(Kata.IsIsogram(""));
-        }
+            Console.WriteLine(Kata.DuplicateCount("abcde")); // 0
+            Console.WriteLine(Kata.DuplicateCount("aabbcde")); // 2
+            Console.WriteLine(Kata.DuplicateCount("aabBcde")); // 2
+            Console.WriteLine(Kata.DuplicateCount("indivisibility")); // 1
+            Console.WriteLine(Kata.DuplicateCount("aA11")); // 2
+            Console.WriteLine(Kata.DuplicateCount("ABBA")); // 2
+		}
 
         public class Kata
         {
 
 
+			public static int DuplicateCount(string str)
+			{
+                return str.Count();
+			}
+
 			public static bool IsIsogram(string str)
 			{
-                string charTracker = "";
+				if (str.Length == 0) { return true; }
 
-                if (str.Length == 0) { return true; }
+				string charTracker = "";
 
-                foreach (char c in str)
+                foreach (char c in str.ToLower())
                 {
                     if (charTracker.Contains(c))
                     {
                         return false;
                     }
-
                     charTracker += c;
                 }
-
                 return true;
 			}
 

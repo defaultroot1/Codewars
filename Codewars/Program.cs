@@ -10,14 +10,35 @@ namespace Codewars
 
 		static void Main(string[] args)
         {
-			// Tests here
-			var list = new List<object>() { 1, 2, "a", "b" }; // new List<int>(){1,2};
-			var list2 = new List<object>() { 1, "a", "b", 0, 15 }; // new List<int>(){1,0,15};
-		}
+            // Tests here
+            Console.WriteLine(Kata.IsIsogram("Dermatoglyphics"));
+            Console.WriteLine(Kata.IsIsogram("aba"));
+            Console.WriteLine(Kata.IsIsogram("moOse"));
+            Console.WriteLine(Kata.IsIsogram(""));
+        }
 
         public class Kata
         {
 
+
+			public static bool IsIsogram(string str)
+			{
+                string charTracker = "";
+
+                if (str.Length == 0) { return true; }
+
+                foreach (char c in str)
+                {
+                    if (charTracker.Contains(c))
+                    {
+                        return false;
+                    }
+
+                    charTracker += c;
+                }
+
+                return true;
+			}
 
 			public class ListFilterer
 			{

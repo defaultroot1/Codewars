@@ -11,11 +11,14 @@ namespace Codewars
 
 		static void Main(string[] args)
         {
-            // Tests here
-            Console.WriteLine(Kata.DuplicateCount("abcde")); // 0
+			// https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
+
+			// Tests here
+			Console.WriteLine(Kata.DuplicateCount("abcde")); // 0
             Console.WriteLine(Kata.DuplicateCount("aabbcde")); // 2
             Console.WriteLine(Kata.DuplicateCount("aabBcde")); // 2
             Console.WriteLine(Kata.DuplicateCount("indivisibility")); // 1
+            Console.WriteLine(Kata.DuplicateCount("Indivisibilities")); // 2, i and s
             Console.WriteLine(Kata.DuplicateCount("aA11")); // 2
             Console.WriteLine(Kata.DuplicateCount("ABBA")); // 2
 		}
@@ -26,7 +29,32 @@ namespace Codewars
 
 			public static int DuplicateCount(string str)
 			{
-                return str.Count();
+                Dictionary<char,int> charTracker = new();
+                int duplicateCount = 0;
+
+                foreach(char c in str.ToLower())
+                {
+                    if (charTracker.ContainsKey(c))
+                    {
+                        charTracker[c] += 1;
+                    }
+                    else
+                    {
+						charTracker.Add(c, +1);
+					}
+                    
+                }
+
+                foreach(KeyValuePair<char,int> pair in charTracker)
+                {
+                    if (pair.Value > 1)
+                    {
+                        duplicateCount++;
+                    }
+                }
+
+                return duplicateCount;
+
 			}
 
 			public static bool IsIsogram(string str)

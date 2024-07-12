@@ -11,24 +11,42 @@ namespace Codewars
 
 		static void Main(string[] args)
         {
-			// https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
+            // https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
 
-			// Tests here
-			Console.WriteLine(Kata.DuplicateCount("abcde")); // 0
-            Console.WriteLine(Kata.DuplicateCount("aabbcde")); // 2
-            Console.WriteLine(Kata.DuplicateCount("aabBcde")); // 2
-            Console.WriteLine(Kata.DuplicateCount("indivisibility")); // 1
-            Console.WriteLine(Kata.DuplicateCount("Indivisibilities")); // 2, i and s
-            Console.WriteLine(Kata.DuplicateCount("aA11")); // 2
-            Console.WriteLine(Kata.DuplicateCount("ABBA")); // 2
+            // Tests here
+            Console.WriteLine(Kata.XO("ooxx")); // true
+            Console.WriteLine(Kata.XO("xooxx")); // false
+            Console.WriteLine(Kata.XO("ooxXm")); // true
+            Console.WriteLine(Kata.XO("zpzpzpp")); // true none = true
+            Console.WriteLine(Kata.XO("zzoo")); // false
 		}
 
         public class Kata
         {
 
+			public static bool XO(string input)
+			{
+                int xCount = 0;
+                int oCount = 0;
+
+                foreach (char c in input)
+                {
+                    if (c == 'x')
+                    {
+                        xCount++;
+                    }
+                    else if (c == 'o')
+                    {
+                        oCount++;
+                    }
+                }
+
+                return(xCount == oCount);
+            }
 
 			public static int DuplicateCount(string str)
 			{
+
                 Dictionary<char,int> charTracker = new();
                 int duplicateCount = 0;
 
@@ -54,7 +72,6 @@ namespace Codewars
                 }
 
                 return duplicateCount;
-
 			}
 
 			public static bool IsIsogram(string str)

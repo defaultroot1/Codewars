@@ -14,14 +14,47 @@ namespace Codewars
             // https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
 
             // Tests here
-            Console.WriteLine(Kata.DuplicateEncode("din")); // (((
-			Console.WriteLine(Kata.DuplicateEncode("recede")); // ()()()
-            Console.WriteLine(Kata.DuplicateEncode("Success")); // )())())
-            Console.WriteLine(Kata.DuplicateEncode("(( @")); // ))((
+            Console.WriteLine(Kata.FindShort("bitcoin take over the world maybe who knows perhaps")); // 3
+            Console.WriteLine(Kata.FindShort("Let's travel abroad shall we")); // 2
 		}
 
         public class Kata
         {
+
+
+			public static int FindShort(string s)
+			{
+                int lowestCount = s.Length;
+				int currentWordCount = 0;
+
+				for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i].ToString() != " ")
+                    {
+                        currentWordCount++;
+                    }
+                    else
+                    {
+						if (currentWordCount < lowestCount)
+						{
+							lowestCount = currentWordCount;
+						}
+                        currentWordCount = 0;
+					}
+
+                    if(i == s.Length - 1)
+                    {
+						if (currentWordCount < lowestCount)
+						{
+							lowestCount = currentWordCount;
+						}
+						currentWordCount = 0;
+					}
+				}
+                
+				return lowestCount;
+			}
+
 
 			public static string DuplicateEncode(string word)
 			{
@@ -32,7 +65,7 @@ namespace Codewars
                     int charCount = 0;
                     foreach (char c in word.ToLower())
                     {
-                        if (word[i] == c)
+                        if (word.ToLower()[i] == c)
                         {
                             charCount++;
                         }

@@ -14,22 +14,50 @@ namespace Codewars
             // https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
 
             // Tests here
-            Console.WriteLine(Kata.XO("ooxx")); // true
-            Console.WriteLine(Kata.XO("xooxx")); // false
-            Console.WriteLine(Kata.XO("ooxXm")); // true
-            Console.WriteLine(Kata.XO("zpzpzpp")); // true none = true
-            Console.WriteLine(Kata.XO("zzoo")); // false
+            Console.WriteLine(Kata.DuplicateEncode("din")); // (((
+			Console.WriteLine(Kata.DuplicateEncode("recede")); // ()()()
+            Console.WriteLine(Kata.DuplicateEncode("Success")); // )())())
+            Console.WriteLine(Kata.DuplicateEncode("(( @")); // ))((
 		}
 
         public class Kata
         {
+
+			public static string DuplicateEncode(string word)
+			{
+                string returnString = "";
+
+                for (int i = 0; i < word.Length; i++)
+                {
+                    int charCount = 0;
+                    foreach (char c in word.ToLower())
+                    {
+                        if (word[i] == c)
+                        {
+                            charCount++;
+                        }
+                    }
+
+                    if (charCount > 1)
+                    {
+                        returnString += ")";
+                    }
+                    else
+                    {
+                        returnString += "(";
+                    }
+                }
+
+                return returnString;
+			}
+
 
 			public static bool XO(string input)
 			{
                 int xCount = 0;
                 int oCount = 0;
 
-                foreach (char c in input)
+                foreach (char c in input.ToLower())
                 {
                     if (c == 'x')
                     {

@@ -14,13 +14,37 @@ namespace Codewars
             // https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
 
             // Tests here
-            Console.WriteLine(Kata.FindShort("bitcoin take over the world maybe who knows perhaps")); // 3
-            Console.WriteLine(Kata.FindShort("Let's travel abroad shall we")); // 2
+            Console.WriteLine(Kata.MakeComplement("ATTGC")); //TAACG
+            Console.WriteLine(Kata.MakeComplement("GTAT")); //CATA
 		}
 
         public class Kata
         {
+			public static string MakeComplement(string dna)
+			{
+                string returnString = "";
 
+                foreach (char c in dna)
+                {
+                    switch(c)
+                    {
+                        case 'A':
+                            returnString += 'T';
+                            break;
+                        case 'T':
+                            returnString += 'A';
+                            break;
+                        case 'G':
+                            returnString += 'C';
+                            break;
+                        case 'C':
+                            returnString += 'G';
+                            break;
+                    }
+                }
+
+                return returnString;
+			}
 
 			public static int FindShort(string s)
 			{

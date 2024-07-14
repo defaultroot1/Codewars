@@ -11,8 +11,6 @@ namespace Codewars
 
 		static void Main(string[] args)
         {
-            // https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
-
             // Tests here
             Console.WriteLine(Kata.Persistence(39)); // 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit, there are 3 multiplications)
             Console.WriteLine(Kata.Persistence(999)); // 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2, there are 4 multiplications)
@@ -20,14 +18,17 @@ namespace Codewars
 
         public class Kata
         {
-
-            public static int Persistence(long n)
+			// https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/csharp
+			public static int Persistence(long n)
             {
-                List<string> individualDigits = n.ToString().Split(",").ToList();
+                List<long> individualDigits = new();
 
-                foreach (string digit in individualDigits)
+                for(int i = 0; i < n.)
+
+                foreach (int digit in Int32.Parse(n))
                 {
-                    Console.WriteLine($"{digit} -");
+
+                    individualDigits.Add(digit);
                 }
                 return 0;
             }

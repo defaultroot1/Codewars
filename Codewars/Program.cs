@@ -3,6 +3,7 @@ using System.Diagnostics.Tracing;
 using System.Globalization;
 using System.Runtime.ExceptionServices; //ToTitleCase
 using System.Linq;
+using System.Diagnostics.Metrics;
 
 namespace Codewars
 {
@@ -19,19 +20,33 @@ namespace Codewars
         public class Kata
         {
 			// https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/csharp
-			public static int Persistence(long n)
-            {
-                List<long> individualDigits = new();
 
-                for(int i = 0; i < n.)
+			public static int Persistence(long num)
+			{
+				int counter = 0;
 
-                foreach (int digit in Int32.Parse(n))
-                {
+				while (num >= 10)
+				{
+					num = MultiplyDigits(num);
+					counter++;
+				}
 
-                    individualDigits.Add(digit);
-                }
-                return 0;
-            }
+				return counter;
+			}
+
+			private static long MultiplyDigits(long num)
+			{
+				long result = 1;
+				while (num > 0)
+				{
+					result *= num % 10;
+					num /= 10;
+				}
+				return result;
+			}
+
+
+
 
 			public static string MakeComplement(string dna)
 			{

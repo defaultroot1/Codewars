@@ -13,13 +13,18 @@ namespace Codewars
 		static void Main(string[] args)
         {
             // Tests here
-            Console.WriteLine(Kata.Persistence(39)); // 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit, there are 3 multiplications)
-            Console.WriteLine(Kata.Persistence(999)); // 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2, there are 4 multiplications)
+            Console.WriteLine(Kata.sumTwoSmallestNumbers(new int[] { 5, 8, 12, 19, 22})); //13
+            Console.WriteLine(Kata.sumTwoSmallestNumbers(new int[] { 19, 5, 42, 2, 77 })); // 7
+            Console.WriteLine(Kata.sumTwoSmallestNumbers(new int[] { 10, 343445353, 3453445, 2147483647 })); // 3453455
 		}
 
         public class Kata
         {
-			// https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/csharp
+			public static int sumTwoSmallestNumbers(int[] numbers)
+			{
+                Array.Sort(numbers);
+				return numbers[0] + numbers[1];
+			}
 
 			public static int Persistence(long num)
 			{

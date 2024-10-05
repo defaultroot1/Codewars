@@ -14,29 +14,26 @@ namespace Codewars
 
 		static void Main(string[] args)
         {
-			// Tests here
-			Console.WriteLine(Kata.Add("91", "19")); // 110
-			Console.WriteLine(Kata.Add("123456789", "987654322")); // 1111111111
-			Console.WriteLine(Kata.Add("999999999", "1")); // 1000000000
-			Console.WriteLine(Kata.Add("9999999999999999999999999999999", "999999999999999999999999")); // 1000000000
+            // Tests here
+            Console.WriteLine(Kata.sumStrings("123", "456")); // 579
 		}
 
         public class Kata
         {
+
+			public static string sumStrings(string a, string b)
+			{
+				// https://www.codewars.com/kata/5324945e2ece5e1f32000370/csharp
+
+				return ($"{int.Parse(a) + int.Parse(b)}");
+			}
+
+
 			public static string Add(string a, string b)
 			{
-                //Console.WriteLine(double.Parse(a));
-                //Console.WriteLine(double.Parse(b));
-
-                ulong numA = ulong.Parse(a);
-                ulong numB = ulong.Parse(b);
-
-                Console.WriteLine("numA = " + numA);
-                Console.WriteLine("numB = " + numB);
-                Console.WriteLine(("numA + numB = " + (numA + numB)));
+                // using System.Numerics
 
                 return ($"{BigInteger.Parse(a) + BigInteger.Parse(b)}");
-
 			}
 	
 

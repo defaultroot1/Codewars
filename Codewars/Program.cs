@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Runtime.ExceptionServices; //ToTitleCase
 using System.Linq;
 using System.Diagnostics.Metrics;
+using System.Runtime.CompilerServices;
+using System.Numerics;
 
 namespace Codewars
 {
@@ -12,14 +14,32 @@ namespace Codewars
 
 		static void Main(string[] args)
         {
-            // Tests here
-            Console.WriteLine(Kata.sumTwoSmallestNumbers(new int[] { 5, 8, 12, 19, 22})); //13
-            Console.WriteLine(Kata.sumTwoSmallestNumbers(new int[] { 19, 5, 42, 2, 77 })); // 7
-            Console.WriteLine(Kata.sumTwoSmallestNumbers(new int[] { 10, 343445353, 3453445, 2147483647 })); // 3453455
+			// Tests here
+			Console.WriteLine(Kata.Add("91", "19")); // 110
+			Console.WriteLine(Kata.Add("123456789", "987654322")); // 1111111111
+			Console.WriteLine(Kata.Add("999999999", "1")); // 1000000000
+			Console.WriteLine(Kata.Add("9999999999999999999999999999999", "999999999999999999999999")); // 1000000000
 		}
 
         public class Kata
         {
+			public static string Add(string a, string b)
+			{
+                //Console.WriteLine(double.Parse(a));
+                //Console.WriteLine(double.Parse(b));
+
+                ulong numA = ulong.Parse(a);
+                ulong numB = ulong.Parse(b);
+
+                Console.WriteLine("numA = " + numA);
+                Console.WriteLine("numB = " + numB);
+                Console.WriteLine(("numA + numB = " + (numA + numB)));
+
+                return ($"{BigInteger.Parse(a) + BigInteger.Parse(b)}");
+
+			}
+	
+
 			public static int sumTwoSmallestNumbers(int[] numbers)
 			{
                 Array.Sort(numbers);
